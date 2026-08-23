@@ -34,7 +34,7 @@ export default function FilterBar({ activeFilter, onFilterChange }: FilterBarPro
           {activeFilter === filter.value && (
             <motion.div
               layoutId="activeFilter"
-              className="absolute inset-0 bg-zinc-900 rounded-full"
+              className="absolute inset-0 bg-gradient-to-r from-accent/75 to-purple-400 rounded-full"
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             />
           )}

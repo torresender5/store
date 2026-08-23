@@ -9,10 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                <img
+                  src={"/logo.png"}
+                  alt={"FIORESTILO"}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 rounded-full"
+                  loading="lazy"
+                />
               </div>
-              <span className="text-xl font-bold text-white">MODA</span>
+              <span className="text-xl font-bold text-white">FIORESTILO</span>
             </div>
             <p className="text-sm leading-relaxed">
               Tu estilo, tu identidad. Moda contemporánea para personas que

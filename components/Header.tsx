@@ -32,7 +32,7 @@ export default function Header() {
             whileHover={{ scale: 1.02 }}
           >
             <motion.img
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Mi imagen animada"
               className="w-12 h-12 sm:w-20 sm:h-20 rounded-full object-cover"
               initial={{ opacity: 0, scale: 0.8 }}

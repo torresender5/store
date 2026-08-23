@@ -57,7 +57,7 @@ export default function HomeClient({ products }: HomeClientProps) {
 
             <motion.a
               href="#catalogo"
-              className="inline-flex items-center gap-2 bg-zinc-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-zinc-800 transition-colors"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/75 to-purple-400 text-white px-8 py-4 rounded-full font-semibold hover:bg-zinc-800 transition-colors"
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -130,16 +130,16 @@ export default function HomeClient({ products }: HomeClientProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-zinc-900 to-zinc-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden"
+          className="bg-gradient-to-r from-accent/25 to-purple-200 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl" />
 
           <div className="relative">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            <h2 className="text-zinc-900 text-2xl sm:text-3xl font-bold mb-4">
               ¿Primera compra?
             </h2>
-            <p className="text-zinc-300 mb-6 max-w-md mx-auto">
+            <p className="text-zinc-900 mb-6 max-w-md mx-auto">
               Obtén un 15% de descuento en tu primer pedido. Escríbenos por
               WhatsApp y menciona el código{" "}
               <span className="font-bold text-accent-light">BIENVENIDO15</span>
@@ -148,7 +148,7 @@ export default function HomeClient({ products }: HomeClientProps) {
               href="https://wa.me/5491112345678?text=Hola! Quiero mi descuento de bienvenida con el código BIENVENIDO15"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#20BD5A] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#25D366]s bg-zinc-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gradient-to-r from-accent/75 to-purple-400 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
