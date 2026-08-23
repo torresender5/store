@@ -68,7 +68,7 @@ export default function Header() {
               <Search className="w-5 h-5" />
             </motion.button>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="relative p-2 rounded-full hover:bg-zinc-100 transition-colors"
@@ -78,7 +78,7 @@ export default function Header() {
               <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-accent text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                 0
               </span>
-            </motion.button>
+            </motion.button> */}
 
             <button
               className="md:hidden p-2 rounded-full hover:bg-zinc-100 transition-colors"
