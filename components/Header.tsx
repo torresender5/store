@@ -32,10 +32,10 @@ export default function Header() {
             whileHover={{ scale: 1.02 }}
           >
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm sm:text-lg">M</span>
+              <span className="text-white font-bold text-sm sm:text-lg">F</span>
             </div>
             <span className="text-lg sm:text-xl font-bold tracking-tight">
-              MODA
+              FIORESTILO
             </span>
           </motion.div>
 

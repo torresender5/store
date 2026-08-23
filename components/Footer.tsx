@@ -80,11 +80,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 shrink-0" />
-                <span>+54 9 11 1234-5678</span>
+                <span>+54 XXX XXX XX</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>hola@modastore.com</span>
+                <span>Fiorestilo@yopmail.com</span>
               </li>
             </ul>
           </div>
@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="border-t border-zinc-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-zinc-500">
-            &copy; 2026 MODA Store. Todos los derechos reservados.
+            &copy; 2026 Fiorestilo Store. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-xs text-zinc-500">
             <a href="#" className="hover:text-zinc-300 transition-colors">
