@@ -26,14 +26,19 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-16 sm:h-28">
           <motion.div
             className="flex items-center gap-2"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm sm:text-lg">F</span>
-            </div>
+            <motion.img
+              src="/logo.jpeg"
+              alt="Mi imagen animada"
+              className="w-12 h-12 sm:w-20 sm:h-20 rounded-full object-cover"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            />
             <span className="text-lg sm:text-xl font-bold tracking-tight">
               FIORESTILO
             </span>
