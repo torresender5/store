@@ -1,40 +1,95 @@
+# MODA Store
 
-# store
-Website for an online store to showcase products
+Online storefront for a fashion store showcasing products for **hombre**, **mujer**, and **accesorios**. It features a filterable product catalog, a product detail modal, and a promotional section — all fully responsive. The UI copy is in Spanish (`lang="es"`).
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Tech Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router) + React 19 + TypeScript (strict)
+- Tailwind CSS v4 (theme tokens defined in `app/globals.css` via `@theme inline`; no tailwind.config file)
+- [framer-motion](https://www.framer.com/motion/) for animations
+- [lucide-react](https://lucide.dev) icons
+- axios for API requests
+
+## Features
+
+- Hero landing section with call-to-action
+- Product catalog filtered by category: `todos` / `hombre` / `mujer` / `accesorios`
+- Product modal with available sizes
+- Animated transitions between filters (AnimatePresence)
+- WhatsApp promo section with discount code
+- Responsive layout (mobile-first)
+
+## Architecture & Data Flow
+
+```
+app/page.tsx (server component)
+        │
+        ▼
+getProducts()  ── lib/products-api.ts
+        │
+        ├──► External API: GET ${API_URL}/products   (HTTP Basic auth, axios, 5s timeout)
+        │            │
+        │            ▼
+        │    mapApiProduct() ── maps ApiProduct → Product
+        │
+        └──► Fallback: static catalog from data/products.ts
+             (used when credentials are missing, the API fails,
+              or the request times out)
+```
+
+Key points:
+
+- Products come from an external API authenticated with HTTP Basic auth.
+- On missing credentials (`API_AUTH_USER` / `API_AUTH_PASSWORD`), API error, or timeout, the app falls back to a static catalog, so the site renders without a backend.
+- Categories are a fixed union type `"hombre" | "mujer" | "accesorios"` defined in `lib/types.ts`.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js >= 20.9.0 (required by Next.js 16)
+- npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file at the repo root:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+API_URL=http://localhost:3000      # Base URL of the products API
+API_AUTH_USER=                     # Basic auth user
+API_AUTH_PASSWORD=                 # Basic auth password
+```
 
-## Learn More
+All three variables are optional — without them the site serves the static catalog in `data/products.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+### Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Action |
+| --- | --- |
+| `npm run dev` | Start dev server at **http://localhost:3003** (non-default port) |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npx tsc --noEmit` | Typecheck |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+There is no test framework configured.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/                  # App Router entrypoint: layout, page (server), home-client (client UI)
+components/           # Client components: Header, FilterBar, ProductGrid, ProductCard, ProductModal, Footer
+lib/                  # products-api.ts (data fetching + fallback) and types.ts (Product, Category, ApiProduct)
+data/                 # Static product catalog used as fallback
+public/               # Static assets (logo, icons)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+This project deploys to [Vercel](https://vercel.com) with zero configuration.
